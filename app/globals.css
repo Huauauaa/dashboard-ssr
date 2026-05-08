@@ -504,3 +504,8 @@ select {
 .animate-card-scroll {
   animation: card-scroll 28s linear infinite;
 }
+
+.notice-bar:hover .animate-marquee,
+.metrics-viewport:hover .animate-card-scroll {
+  animation-play-state: paused;
+}
