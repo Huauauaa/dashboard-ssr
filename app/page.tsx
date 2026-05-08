@@ -158,11 +158,6 @@ export default function Home() {
         </header>
 
         <section className="metrics-section">
-          <div className="metrics-copy">
-            <span>实时指标</span>
-            <strong>关键业务滚动看板</strong>
-          </div>
-
           <div className="metrics-viewport">
             <div className="metrics-track animate-card-scroll">
               {[...metricCards, ...metricCards].map((item, index) => (

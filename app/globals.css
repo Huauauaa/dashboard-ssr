@@ -133,8 +133,7 @@ select {
 
 .brand-subtitle,
 .user-card span,
-.panel-heading p,
-.metrics-copy span {
+.panel-heading p {
   color: var(--muted);
   font-size: 0.875rem;
 }
@@ -191,21 +190,10 @@ select {
 
 .metrics-section {
   display: grid;
-  grid-template-columns: 220px minmax(0, 1fr);
-  gap: 18px;
+  grid-template-columns: minmax(0, 1fr);
   align-items: center;
   margin-top: 18px;
   padding: 18px;
-}
-
-.metrics-copy {
-  display: grid;
-  gap: 8px;
-}
-
-.metrics-copy strong {
-  font-size: clamp(1.2rem, 1.6vw, 1.65rem);
-  line-height: 1.2;
 }
 
 .metrics-viewport {
@@ -515,4 +503,9 @@ select {
 
 .animate-card-scroll {
   animation: card-scroll 28s linear infinite;
+}
+
+.notice-bar:hover .animate-marquee,
+.metrics-viewport:hover .animate-card-scroll {
+  animation-play-state: paused;
 }
