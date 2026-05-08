@@ -2,110 +2,117 @@ import type { EChartsOption } from "echarts";
 import { EChart } from "@/components/EChart";
 
 const metricCards = [
-  { name: "app1", count: "1", amount: "100" },
-  { name: "app2", count: "2", amount: "10000" },
-  { name: "app3", count: "8", amount: "8200" },
-  { name: "app4", count: "16", amount: "32600" },
-  { name: "app5", count: "32", amount: "78000" },
-  { name: "app6", count: "64", amount: "128000" },
+  { name: "核心应用", count: "1.28M", amount: "访问量", trend: "+12.8%" },
+  { name: "交易通道", count: "98.7%", amount: "成功率", trend: "+3.4%" },
+  { name: "告警处理", count: "26", amount: "待跟进", trend: "-18.6%" },
+  { name: "活跃用户", count: "82K", amount: "在线", trend: "+8.1%" },
+  { name: "资源利用", count: "67%", amount: "集群负载", trend: "+4.6%" },
+  { name: "收益规模", count: "128K", amount: "今日金额", trend: "+15.2%" },
 ];
 
 const tableRows = [
-  ["Value 1", "Value 2", "Value 3"],
-  ["Value 4", "Value 5", "Value 6"],
-  ["Value 7", "Value 8", "Value 9"],
-  ["Value 10", "Value 11", "Value 12"],
+  ["支付网关", "42 ms", "稳定"],
+  ["营销系统", "58 ms", "增长"],
+  ["用户中心", "36 ms", "稳定"],
+  ["数据同步", "71 ms", "观察"],
 ];
 
 const lineOption: EChartsOption = {
-  color: ["#178bff", "#d9dce1"],
-  tooltip: { trigger: "axis" },
-  grid: { left: 12, right: 20, top: 18, bottom: 24, containLabel: false },
+  color: ["#38bdf8", "#a78bfa"],
+  tooltip: { trigger: "axis", backgroundColor: "rgba(15, 23, 42, 0.92)" },
+  grid: { left: 18, right: 18, top: 18, bottom: 24, containLabel: true },
   xAxis: {
     type: "category",
     boundaryGap: false,
     data: ["1月", "2月", "3月", "4月", "5月"],
-    axisLine: { lineStyle: { color: "#707070", width: 2 } },
-    axisLabel: { show: false },
+    axisLine: { lineStyle: { color: "rgba(148, 163, 184, 0.35)" } },
+    axisLabel: { color: "#94a3b8" },
     axisTick: { show: false },
   },
   yAxis: {
     type: "value",
-    axisLabel: { show: false },
-    splitLine: { show: false },
+    axisLabel: { color: "#94a3b8" },
+    splitLine: { lineStyle: { color: "rgba(148, 163, 184, 0.18)" } },
   },
   series: [
     {
       name: "业务访问量",
       type: "line",
-      smooth: false,
-      symbol: "none",
-      lineStyle: { width: 3 },
+      smooth: true,
+      symbol: "circle",
+      symbolSize: 7,
+      lineStyle: { width: 4 },
+      areaStyle: { color: "rgba(56, 189, 248, 0.16)" },
       data: [20, 42, 45, 62, 80],
     },
     {
       name: "对比趋势",
       type: "line",
-      smooth: false,
-      symbol: "none",
-      lineStyle: { width: 3 },
-      data: [20, 58, 35, 90],
+      smooth: true,
+      symbol: "circle",
+      symbolSize: 7,
+      lineStyle: { width: 4 },
+      data: [24, 58, 35, 72, 90],
     },
   ],
 };
 
 const barOption: EChartsOption = {
-  color: ["#178bff", "#d9dce1"],
-  tooltip: { trigger: "axis", axisPointer: { type: "shadow" } },
-  grid: { left: 12, right: 20, top: 16, bottom: 28, containLabel: false },
+  color: ["#22d3ee", "#6366f1"],
+  tooltip: {
+    trigger: "axis",
+    axisPointer: { type: "shadow" },
+    backgroundColor: "rgba(15, 23, 42, 0.92)",
+  },
+  grid: { left: 16, right: 18, top: 18, bottom: 18, containLabel: true },
   xAxis: {
     type: "value",
-    axisLabel: { show: false },
-    splitLine: { show: false },
+    axisLabel: { color: "#94a3b8" },
+    splitLine: { lineStyle: { color: "rgba(148, 163, 184, 0.16)" } },
   },
   yAxis: {
     type: "category",
-    data: ["项目A", "项目B", "项目C"],
-    axisLabel: { show: false },
+    data: ["项目A", "项目B", "项目C", "项目D"],
+    axisLabel: { color: "#cbd5e1" },
     axisTick: { show: false },
-    axisLine: { lineStyle: { color: "#707070", width: 2 } },
+    axisLine: { lineStyle: { color: "rgba(148, 163, 184, 0.28)" } },
   },
   series: [
     {
       name: "基线",
       type: "bar",
-      barWidth: 12,
+      barWidth: 14,
       barGap: "-100%",
-      itemStyle: { color: "#d9d9d9" },
-      data: [80, 65, 85],
+      itemStyle: { color: "rgba(148, 163, 184, 0.18)", borderRadius: 10 },
+      data: [90, 78, 88, 82],
       z: 1,
     },
     {
       name: "完成度",
       type: "bar",
-      barWidth: 12,
-      itemStyle: { color: "#178bff" },
-      data: [70, 60, 75],
+      barWidth: 14,
+      itemStyle: { color: "#38bdf8", borderRadius: 10 },
+      data: [76, 68, 81, 73],
       z: 2,
     },
   ],
 };
 
 const pieOption: EChartsOption = {
-  color: ["#bfbfbf", "#d9d9d9", "#efefef"],
-  tooltip: { trigger: "item" },
+  color: ["#38bdf8", "#818cf8", "#34d399"],
+  tooltip: { trigger: "item", backgroundColor: "rgba(15, 23, 42, 0.92)" },
   series: [
     {
       name: "占比",
       type: "pie",
-      radius: ["0%", "86%"],
+      radius: ["48%", "82%"],
       center: ["50%", "52%"],
       avoidLabelOverlap: true,
-      label: { show: false },
-      labelLine: { show: false },
+      label: { color: "#cbd5e1", formatter: "{b}\n{d}%" },
+      labelLine: { lineStyle: { color: "rgba(203, 213, 225, 0.45)" } },
       itemStyle: {
-        borderColor: "#178bff",
-        borderWidth: 2,
+        borderColor: "#0f172a",
+        borderWidth: 4,
       },
       data: [
         { value: 54, name: "核心业务" },
@@ -116,100 +123,108 @@ const pieOption: EChartsOption = {
   ],
 };
 
+const chartPanels = [
+  { title: "业务访问趋势", subtitle: "月度访问量对比", option: lineOption },
+  { title: "项目完成度", subtitle: "核心项目实时进展", option: barOption },
+  { title: "业务结构占比", subtitle: "当日流量构成", option: pieOption },
+];
+
 export default function Home() {
   return (
-    <main className="min-h-screen overflow-hidden bg-[#f7f8fa] px-6 py-8 text-[#111827] dashboard-grid">
-      <section className="mx-auto flex min-h-[calc(100vh-4rem)] max-w-[1440px] flex-col overflow-hidden border-2 border-[#202020] bg-white shadow-[0_24px_60px_rgba(15,23,42,0.12)]">
-        <header className="grid min-h-24 grid-cols-[220px_1fr_190px] border-b-2 border-[#202020]">
-          <div className="grid place-items-center border-r-2 border-[#202020] text-xl font-semibold">
-            logo
-          </div>
-          <div className="grid place-items-center overflow-hidden px-10 text-lg font-medium">
-            <div className="w-full overflow-hidden whitespace-nowrap">
-              <span className="inline-block min-w-full animate-marquee text-center">
-                消息通知。。。 今日业务运行稳定，核心指标持续刷新
-              </span>
+    <main className="dashboard-page">
+      <section className="dashboard-shell">
+        <header className="dashboard-header">
+          <div className="brand-card">
+            <div className="brand-mark">DS</div>
+            <div>
+              <p className="brand-title">Dashboard</p>
+              <span className="brand-subtitle">实时运营中心</span>
             </div>
           </div>
-          <div className="grid place-items-center border-l-2 border-[#202020]">
-            <div className="relative h-16 w-16">
-              <div className="absolute left-1/2 top-0 h-7 w-7 -translate-x-1/2 rounded-full border-2 border-[#202020]" />
-              <div className="absolute bottom-0 left-1/2 h-11 w-14 -translate-x-1/2 rounded-t-full border-2 border-[#202020]" />
+
+          <div className="notice-bar">
+            <span className="animate-marquee">
+              消息通知：今日业务运行稳定，核心指标持续刷新，重点应用延迟保持在安全阈值内
+            </span>
+          </div>
+
+          <div className="user-card">
+            <div className="user-avatar">U</div>
+            <div>
+              <p>运营管理员</p>
+              <span>在线监控中</span>
             </div>
           </div>
         </header>
 
-        <section className="grid min-h-28 grid-cols-[1fr_176px] border-b-2 border-[#202020]">
-          <div className="overflow-hidden px-4 py-2">
-            <div className="flex h-full min-w-max animate-card-scroll gap-4">
+        <section className="metrics-section">
+          <div className="metrics-copy">
+            <span>实时指标</span>
+            <strong>关键业务滚动看板</strong>
+          </div>
+
+          <div className="metrics-viewport">
+            <div className="metrics-track animate-card-scroll">
               {[...metricCards, ...metricCards].map((item, index) => (
-                <article
-                  className="grid h-24 w-56 shrink-0 place-items-center border-2 border-[#202020] bg-white px-4 text-center"
-                  key={`${item.name}-${index}`}
-                >
+                <article className="metric-card" key={`${item.name}-${index}`}>
+                  <span>{item.name}</span>
+                  <strong>{item.count}</strong>
                   <div>
-                    <h2 className="text-lg font-semibold leading-tight">
-                      {item.name}
-                    </h2>
-                    <p className="text-base leading-tight text-slate-700">
-                      {item.count}
-                    </p>
-                    <p className="text-lg leading-tight text-slate-700">
-                      {item.amount}
-                    </p>
+                    <em>{item.amount}</em>
+                    <small>{item.trend}</small>
                   </div>
                 </article>
               ))}
             </div>
           </div>
-          <div className="grid place-items-center border-l-2 border-[#202020] px-6 text-center text-lg font-semibold leading-tight">
-            卡片无缝
-            <br />
-            链接滚动
-          </div>
         </section>
 
-        <section className="grid flex-1 grid-cols-2 grid-rows-2 gap-x-10 gap-y-8 px-8 py-8">
-          <div className="chart-panel">
-            <EChart option={lineOption} className="h-full w-full" />
-          </div>
+        <section className="dashboard-content">
+          {chartPanels.map((panel) => (
+            <article className="chart-panel" key={panel.title}>
+              <div className="panel-heading">
+                <div>
+                  <h2>{panel.title}</h2>
+                  <p>{panel.subtitle}</p>
+                </div>
+                <span>Live</span>
+              </div>
+              <EChart option={panel.option} className="chart-canvas" />
+            </article>
+          ))}
 
-          <div className="chart-panel">
-            <EChart option={barOption} className="h-full w-full" />
-          </div>
+          <article className="table-panel">
+            <div className="panel-heading">
+              <div>
+                <h2>服务健康状态</h2>
+                <p>接口延迟与运行态势</p>
+              </div>
+              <span>4 Nodes</span>
+            </div>
 
-          <div className="chart-panel">
-            <EChart option={pieOption} className="h-full w-full" />
-          </div>
-
-          <div className="flex items-center">
-            <div className="w-full overflow-hidden rounded-sm border border-[#a8c83d] shadow-[6px_6px_12px_rgba(15,23,42,0.22)]">
-              <table className="w-full border-collapse text-center text-base">
-                <thead className="bg-[#a9cf3d] text-white">
+            <div className="table-wrap">
+              <table className="status-table">
+                <thead>
                   <tr>
-                    <th className="border-r border-[#95b52f] px-4 py-4 font-bold">
-                      Title 1
-                    </th>
-                    <th className="border-r border-[#95b52f] px-4 py-4 font-bold">
-                      Title 2
-                    </th>
-                    <th className="px-4 py-4 font-bold">Title 3</th>
+                    <th>服务</th>
+                    <th>平均延迟</th>
+                    <th>状态</th>
                   </tr>
                 </thead>
                 <tbody>
                   {tableRows.map((row, rowIndex) => (
-                    <tr
-                      className={
-                        rowIndex % 2 === 0 ? "bg-white" : "bg-[#edf6d5]"
-                      }
-                      key={row.join("-")}
-                    >
+                    <tr key={row.join("-")}>
                       {row.map((cell) => (
-                        <td
-                          className="border-r border-t border-[#a8c83d] px-4 py-4 last:border-r-0"
-                          key={cell}
-                        >
-                          {cell}
+                        <td key={cell}>
+                          {rowIndex === 3 && cell === "观察" ? (
+                            <span className="status-pill status-watch">
+                              {cell}
+                            </span>
+                          ) : cell === "稳定" || cell === "增长" ? (
+                            <span className="status-pill">{cell}</span>
+                          ) : (
+                            cell
+                          )}
                         </td>
                       ))}
                     </tr>
@@ -217,7 +232,7 @@ export default function Home() {
                 </tbody>
               </table>
             </div>
-          </div>
+          </article>
         </section>
       </section>
     </main>
