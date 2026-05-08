@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "description": "Next.js large-screen dashboard demo",
+  "packageManager": "pnpm@10.33.3",
   "scripts": {
     "dev": "next dev",
     "build": "next build",

@@ -10,8 +10,8 @@
 ## 本地开发
 
 ```bash
-npm install
-npm run dev
+pnpm install
+pnpm dev
 ```
 
 打开 <http://localhost:3000> 查看页面。
@@ -19,7 +19,7 @@ npm run dev
 ## 构建
 
 ```bash
-npm run build
+pnpm build
 ```
 
 构建产物会输出到 `out/`，可用于静态托管。
